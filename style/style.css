@@ -1,0 +1,368 @@
+@import url(fonts.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+:root {
+    --violet: #3E284F;
+    --text-first: #fff;
+    --dark: rgb(0, 0, 0);
+    --light-grey: #F4F4F4;
+    --dark-grey: #404040;
+    --os: 'OpenSans';
+}
+
+body {
+    font-family: 'SairaStencil';
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    font-family: var(--os);
+    outline: none;
+}
+
+.nav {
+
+    padding: 20px 0;
+    box-shadow: 0px 0px 20px rgba(62, 40, 79, 0.5);
+    background: var(--violet);
+}
+
+.nav__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--text-first);
+}
+
+.nav__btn {
+    position: relative;
+}
+/* .nav__btn img{
+    pointer-events: none;
+} */
+
+.nav__btn-count {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--text-first);
+    border-radius: 50%;
+    color: var(--violet);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    transform: translate(25%, -25%) scale(0);
+}
+
+.nav__btn-count.active {
+    transform: translate(25%, -25%) scale(1);
+
+}
+
+.nav__right {
+    position: relative;
+}
+
+.nav__basket {
+    position: absolute;
+    width: 357px;
+    height: 391px;
+    box-shadow: 0px 4px 14px 8px rgba(0 0 0 /10%);
+    top: 65px;
+    right: -10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transform: translateY(150%);
+    pointer-events: none;
+    transition: 0.3s;
+
+}
+
+.nav__basket.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    z-index: 999;
+}
+
+.nav__basket-checklist {
+    flex-grow: 1;
+    background: var(--text-first);
+    padding: 0 15px;
+}
+
+.nav__bascket-top {
+    padding: 13px 21px 13px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #775194;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--text-first);
+    font-family: var(--os);
+    border-radius: 10px 10px 0 0;
+
+}
+
+.nav__basket-bottom {
+    padding: 14px;
+    background: #00A441;
+    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--text-first);
+    font-family: var(--os);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+}
+
+
+
+.nav__basket-btn {
+    width: 15px;
+    height: 15px;
+    position: relative;
+}
+
+.nav__basket-btn::before,
+.nav__basket-btn::after {
+    background: var(--text-first);
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotate(45deg);
+    width: 100%;
+    height: 2px;
+}
+
+.nav__basket-btn::after {
+    transform: rotate(-45deg);
+
+}
+
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.product__info {
+    display: flex;
+    column-gap: 10px;
+}
+
+.product__name {
+    color: var(--dark-grey);
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.product__price {
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--dark);
+    font-family: var(--os);
+}
+
+.product__option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #BBBBBB;
+}
+
+.product__symbol {
+    width: 25px;
+    height: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: var(--os);
+    transition: 0.3s;
+}
+
+.product__count {
+    width: 40px;
+    height: 25px;
+    background: #EEEEEE;
+    border: 0.5px solid #BBBBBB;
+    text-align: center;
+}
+.product__img{
+    width: 70px;
+    height: 54px;
+    object-fit: contain;
+}
+.nav__basket::before {
+    content: url(../img/burchak.svg);
+    position: absolute;
+    top: -17px;
+    right: 15px;
+}
+
+.view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 74px;
+}
+
+.menu__item {
+    width: 306px;
+    height: 194px;
+    background: var(--light-grey);
+    box-shadow: 0px 20px 20px -15px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.menu__count {
+    position: absolute;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-first);
+    background: var(--violet);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translate(50%, -50%) scale(0);
+    border: 2px solid #FFFFFF;
+    transition: 0.3s;
+    font-family: var(--os);
+}
+
+.menu__count.active {
+    transform: translate(50%, -50%) scale(1);
+}
+
+.menu__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu__img {
+    margin-top: -60px;
+
+}
+
+.menu__name {
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--dark-grey);
+    margin: 20px;
+    font-weight: 400;
+}
+
+.menu__info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu__price {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    background: var(--violet);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-first);
+    font-family: var(--os);
+}
+
+.menu__btn {
+    padding: 11px;
+    background: var(--violet);
+    border-radius: 10px;
+    display: flex;
+
+}
+.print{
+    display: none;
+    width: 200px;
+    flex-direction: column;
+    align-items: center;
+}
+.priny__header{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+.print__body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin: 20px 0;
+}
+.print__item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.print__name{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.print__headre img{
+    filter: invert();
+}
+
